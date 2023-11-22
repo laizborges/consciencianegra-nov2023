@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+body{
+    background-image: url(https://cdn.pixabay.com/photo/2021/01/08/13/38/road-5899921_1280.png);
+    background-size: cover;
+    overflow: hidden;
+}
+
+img{
+    width: 200px;
+    position: absolute;
+    bottom: 5px;
+    animation-name: displacement ;
+    animation-duration: 5s;
+    animation-timing-function: cubic-bezier(1,1.36,0,-0.43);
+    animation-delay: .5s;
+    /* o animation-delay serve para dar um atraso na animação (de acordo com o tempo de sua preferência) para o usuario comseguir ver a imagem se movendo */
+    /* animation-iteration-count: infinite; */
+    /* o animation-iteration-count: infinite; serve para pôr um looping na imagem, e caso vc mude o infinite para 2.5, a imagem andara 2 vezes e meia */
+    /* animation-fill-mode: backwards; retorna o carro ao ponto inicial */
+    /* a animation-fill-mode: forwards; mantém o carro no final */
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    /* animation-play-state: paused; */
+    /* o animatio-play: paused; pausa a animação */
+}
+
+img:hover{
+    animation-play-state: paused;
+    /* colocando o cursor no carro (ou imagem q estiver sendo usada) fará o carro parar */
+}
+
+@keyframes displacement {
+    from{
+        transform: translateX(0);
+    }
+
+    to{
+        transform: translateX(calc(100vw - 200px));
+    }
+}
+
+/* o calc com os px da largura do width fará com q a imagem retorne ao início antes de passar da largura da tela (que no caso é width: 200px; */
+
+/* 100vw é o total da largura da tela */
